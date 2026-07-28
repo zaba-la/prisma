@@ -6,7 +6,7 @@ description: >
   when a design story is picked up, refined, or reviewed, triggers like
   "is this ready to design?", "write the DoR for this story", "define acceptance
   criteria for this screen", "is this design done?", or "check DoD before
-  handoff". Enforces Ballast Lane's design intake and exit checkpoints so no task
+  handoff". Enforces the design intake and exit checkpoints so no task
   starts underspecified or ships incomplete.
 ---
 

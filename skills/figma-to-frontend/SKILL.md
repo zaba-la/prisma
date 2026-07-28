@@ -19,7 +19,7 @@ token or component that already exists (or a documented exception).
 ## Prerequisite: use the Figma tooling correctly
 If the Figma MCP/plugin is connected, the `figma:figma-design-to-code` skill is
 the MANDATORY prerequisite before calling `get_design_context`; load it first.
-This skill layers Ballast Lane's mapping and quality rules on top of that flow.
+This skill layers this project's mapping and quality rules on top of that flow.
 If Figma access is not authorized, work from exported specs/screenshots the user
 provides and note that live access would tighten fidelity.
 

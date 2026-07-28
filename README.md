@@ -1,6 +1,6 @@
 # Prisma — UX/UI Design Agent
 
-Prisma is Ballast Lane's UX/UI design agent: a senior design partner that
+Prisma is a UX/UI design agent: a senior design partner that
 covers the full product design lifecycle (discovery, information
 architecture, flows, wireframes, high-fidelity UI, motion, design system,
 documentation, QA, and developer handoff). This repository is the toolkit

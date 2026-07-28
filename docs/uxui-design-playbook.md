@@ -1,6 +1,6 @@
-# Ballast Lane: UX/UI Design Playbook
+# UX/UI Design Playbook
 
-A shared handbook for how we do product design at Ballast Lane. It exists so that
+A shared handbook for how we do product design. It exists so that
 designers, engineers, and product managers work from the same definitions,
 rituals, and quality bar, whether we're building a product from zero, redesigning
 a legacy one, or contributing to an established design system.
@@ -14,7 +14,7 @@ members.
 
 ## 1. What we believe
 
-Design at Ballast Lane is accountable for outcomes, not just screens. A few
+Design here is accountable for outcomes, not just screens. A few
 principles guide every engagement:
 
 **Outcomes over deliverables.** Every artifact traces back to a user problem and
