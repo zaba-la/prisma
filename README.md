@@ -1,19 +1,19 @@
-# Prisma — Agente de Diseño UX/UI (Ballast Lane)
+# Prisma — UX/UI Design Agent (Ballast Lane)
 
-Prisma es el agente de diseño UX/UI de Ballast Lane: un partner de diseño senior
-que cubre todo el ciclo de vida del producto (descubrimiento, arquitectura de
-información, flujos, wireframes, UI de alta fidelidad, motion, sistema de
-diseño, documentación, QA y handoff a desarrollo). Este repositorio es el
-toolkit que el equipo de diseño usa dentro de Claude Code / Cowork: el agente,
-sus skills y el playbook humano que documenta los mismos estándares.
+Prisma is Ballast Lane's UX/UI design agent: a senior design partner that
+covers the full product design lifecycle (discovery, information
+architecture, flows, wireframes, high-fidelity UI, motion, design system,
+documentation, QA, and developer handoff). This repository is the toolkit
+the design team uses inside Claude Code / Cowork: the agent, its skills, and
+the human-readable playbook that documents the same standards.
 
-## Estructura del repositorio
+## Repository structure
 
 ```
 .
 ├── agents/
-│   └── prisma.md                # Definición del agente Prisma
-├── skills/                      # 9 skills invocables, una carpeta por skill
+│   └── prisma.md                # Prisma agent definition
+├── skills/                      # 9 invocable skills, one folder per skill
 │   ├── accessibility-audit/
 │   ├── design-dor-dod/
 │   ├── design-qa/
@@ -24,22 +24,22 @@ sus skills y el playbook humano que documenta los mismos estándares.
 │   ├── heuristic-evaluation/
 │   └── ia-user-flows/
 └── docs/
-    ├── uxui-design-playbook.md  # Playbook legible para el equipo (humano)
+    ├── uxui-design-playbook.md  # Human-readable team playbook
     └── assets/
         ├── prisma-process.png
         └── prisma-process.svg
 ```
 
-Cada skill vive en su propia carpeta con un `SKILL.md` (instrucciones que sigue
-el agente) y, cuando aplica, una carpeta `templates/` con checklists o logs en
-formato `.md`/`.csv` listos para usar.
+Each skill lives in its own folder with a `SKILL.md` (the instructions the
+agent follows) and, where relevant, a `templates/` folder with ready-to-use
+checklists or logs in `.md`/`.csv` format.
 
-## Cómo instalarlo
+## How to install it
 
-Prisma está pensado para Claude Code / Cowork. Copia el agente y los skills a
-tu configuración de Claude:
+Prisma is built for Claude Code / Cowork. Copy the agent and skills into
+your Claude configuration:
 
-**Para uso personal (disponible en todos tus proyectos):**
+**For personal use (available across all your projects):**
 
 ```bash
 mkdir -p ~/.claude/agents ~/.claude/skills
@@ -47,55 +47,54 @@ cp agents/prisma.md ~/.claude/agents/
 cp -R skills/* ~/.claude/skills/
 ```
 
-**Para un proyecto específico (solo disponible en ese repo):**
+**For a specific project (available only in that repo):**
 
 ```bash
 mkdir -p .claude/agents .claude/skills
-cp /ruta/a/este/repo/agents/prisma.md .claude/agents/
-cp -R /ruta/a/este/repo/skills/* .claude/skills/
+cp /path/to/this/repo/agents/prisma.md .claude/agents/
+cp -R /path/to/this/repo/skills/* .claude/skills/
 ```
 
-Después de copiar, reinicia Claude Code (o abre una nueva sesión) para que
-detecte el agente y los skills nuevos.
+After copying, restart Claude Code (or start a new session) so it picks up
+the new agent and skills.
 
-## Catálogo de skills
+## Skills catalog
 
-| Skill | Úsalo para... |
+| Skill | Use it to... |
 |---|---|
-| [`frontend-stack-advisor`](skills/frontend-stack-advisor/SKILL.md) | Elegir el framework/librería de front-end en discovery, antes de fijar tokens o UI de alta fidelidad. |
-| [`ia-user-flows`](skills/ia-user-flows/SKILL.md) | Definir arquitectura de información y flujos de usuario cubriendo todos los estados. |
-| [`design-system`](skills/design-system/SKILL.md) | Crear, auditar, extender o consumir un sistema de diseño (tokens, componentes, gobernanza). |
-| [`frontend-prototype`](skills/frontend-prototype/SKILL.md) | Generar un prototipo de front-end funcional como base lista para desarrollo. |
-| [`figma-to-frontend`](skills/figma-to-frontend/SKILL.md) | Convertir un diseño de Figma finalizado en código de producción. |
-| [`design-qa`](skills/design-qa/SKILL.md) | Revisión de calidad en dos pasadas: pre-handoff y post-implementación. |
-| [`heuristic-evaluation`](skills/heuristic-evaluation/SKILL.md) | Evaluar un producto contra las 10 heurísticas de Nielsen, con hallazgos por severidad. |
-| [`accessibility-audit`](skills/accessibility-audit/SKILL.md) | Auditar accesibilidad contra WCAG 2.2 AA con remediación priorizada. |
-| [`design-dor-dod`](skills/design-dor-dod/SKILL.md) | Generar o validar el Definition of Ready / Definition of Done de una tarea de diseño. |
+| [`frontend-stack-advisor`](skills/frontend-stack-advisor/SKILL.md) | Choose the front-end framework/library during discovery, before locking tokens or high-fidelity UI. |
+| [`ia-user-flows`](skills/ia-user-flows/SKILL.md) | Define information architecture and user flows covering every state. |
+| [`design-system`](skills/design-system/SKILL.md) | Create, audit, extend, or consume a design system (tokens, components, governance). |
+| [`frontend-prototype`](skills/frontend-prototype/SKILL.md) | Generate a working front-end prototype as a dev-ready base. |
+| [`figma-to-frontend`](skills/figma-to-frontend/SKILL.md) | Convert a finalized Figma design into production code. |
+| [`design-qa`](skills/design-qa/SKILL.md) | Run a two-pass quality review: pre-handoff and post-implementation. |
+| [`heuristic-evaluation`](skills/heuristic-evaluation/SKILL.md) | Evaluate a product against Nielsen's 10 heuristics, with severity-rated findings. |
+| [`accessibility-audit`](skills/accessibility-audit/SKILL.md) | Audit accessibility against WCAG 2.2 AA with prioritized remediation. |
+| [`design-dor-dod`](skills/design-dor-dod/SKILL.md) | Generate or validate a design task's Definition of Ready / Definition of Done. |
 
-Prisma es el criterio para el trabajo de diseño de punta a punta; cada skill es
-el procedimiento repetible para una tarea puntual. Usa a Prisma cuando
-necesites pensamiento de diseño; usa un skill cuando necesites un checkpoint,
-auditoría o conversión específica de forma consistente.
+Prisma is the judgment for design work end to end; each skill is the
+repeatable procedure for a specific task. Use Prisma when you need design
+thinking; reach for a skill when you need a specific checkpoint, audit, or
+conversion done consistently.
 
 ## Playbook
 
-[`docs/uxui-design-playbook.md`](docs/uxui-design-playbook.md) es la versión
-legible para humanos de los mismos estándares que sigue Prisma: en qué
-creemos, los tres modos de proyecto, el ciclo de vida de diseño, DoR/DoD,
-sistema de diseño, motion, documentación, QA, accesibilidad y handoff. Úsalo
-para onboarding de nuevos miembros del equipo y como referencia en tickets.
+[`docs/uxui-design-playbook.md`](docs/uxui-design-playbook.md) is the
+human-readable version of the same standards Prisma follows: what we
+believe, the three project modes, the design lifecycle, DoR/DoD, design
+system, motion, documentation, QA, accessibility, and handoff. Use it for
+onboarding new team members and as a reference in tickets.
 
-## Diagrama del proceso
+## Process diagram
 
-![Proceso de diseño Prisma](docs/assets/prisma-process.svg)
+![Prisma design process](docs/assets/prisma-process.svg)
 
-## Contribuir
+## Contributing
 
-- El agente (`agents/prisma.md`) y el playbook (`docs/uxui-design-playbook.md`)
-  deben mantenerse alineados: si cambias un estándar en uno, actualízalo en el
-  otro.
-- Los skills nuevos van en `skills/<nombre>/SKILL.md`, siguiendo el mismo
-  formato de frontmatter (`name`, `description` con triggers claros) que los
-  existentes.
-- Prisma nunca usa rayas (— ni –) en su output; si editás el agente o el
-  playbook, mantené ese estilo de puntuación.
+- The agent (`agents/prisma.md`) and the playbook
+  (`docs/uxui-design-playbook.md`) must stay aligned: if you change a
+  standard in one, update the other.
+- New skills go in `skills/<name>/SKILL.md`, following the same frontmatter
+  format (`name`, `description` with clear triggers) as the existing ones.
+- Prisma never uses em dashes (—) or en dashes (–) in its output; keep that
+  punctuation style when editing the agent or the playbook.
