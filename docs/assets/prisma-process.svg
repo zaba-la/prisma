@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Helvetica, Arial, sans-serif">
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="40" y="52" font-size="15" letter-spacing="3" fill="#2E6F9E" font-weight="700">BALLAST LANE</text>
+<text x="40" y="88" font-size="34" fill="#1F3A5F" font-weight="700">Prisma: UX/UI Design, end-to-end</text>
+<text x="40" y="114" font-size="16" fill="#5b6b78">How the design agent runs a project and how the skills plug into each stage.</text>
+<rect x="40" y="132" width="1520" height="34" rx="8" fill="#1F3A5F"/>
+<text x="800.0" y="154" font-size="15" fill="#ffffff" font-weight="600" text-anchor="middle">PRISMA (agent) orchestrates every stage: judgment, sequencing, quality</text>
+<rect x="40.0" y="196" width="289.6" height="40" rx="7" fill="#2E6F9E"/>
+<text x="184.8" y="222" font-size="15" fill="#ffffff" font-weight="700" text-anchor="middle">1  DISCOVER &amp; FRAME</text>
+<rect x="40.0" y="242" width="289.6" height="356" rx="7" fill="#EAF1F7" stroke="#CFE0EE"/>
+<text x="54.0" y="270" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">SKILLS</text>
+<rect x="54.0" y="284" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="66.0" y="301" font-size="12.5" fill="#2E6F9E" font-weight="600">frontend-stack-advisor</text>
+<rect x="54.0" y="316" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="66.0" y="333" font-size="12.5" fill="#2E6F9E" font-weight="600">design-dor-dod (DoR)</text>
+<line x1="54.0" y1="360" x2="315.6" y2="360" stroke="#CFE0EE" stroke-width="1.2"/>
+<text x="54.0" y="388" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">DELIVERABLES</text>
+<circle cx="58.0" cy="404" r="2.6" fill="#2E6F9E"/>
+<text x="68.0" y="408" font-size="12.8" fill="#2b2b2b">Business goals &amp; success criteria</text>
+<circle cx="58.0" cy="428" r="2.6" fill="#2E6F9E"/>
+<text x="68.0" y="432" font-size="12.8" fill="#2b2b2b">Brand foundation (identity, voice)</text>
+<circle cx="58.0" cy="452" r="2.6" fill="#2E6F9E"/>
+<text x="68.0" y="456" font-size="12.8" fill="#2b2b2b">Front-end stack decision</text>
+<circle cx="58.0" cy="476" r="2.6" fill="#2E6F9E"/>
+<text x="68.0" y="480" font-size="12.8" fill="#2b2b2b">Research + heuristic audit, personas</text>
+<polygon points="332.6,209.0 344.6,216.0 332.6,223.0" fill="#1F3A5F"/>
+<rect x="347.6" y="196" width="289.6" height="40" rx="7" fill="#2E6F9E"/>
+<text x="492.40000000000003" y="222" font-size="15" fill="#ffffff" font-weight="700" text-anchor="middle">2  STRUCTURE</text>
+<rect x="347.6" y="242" width="289.6" height="356" rx="7" fill="#EAF1F7" stroke="#CFE0EE"/>
+<text x="361.6" y="270" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">SKILLS</text>
+<rect x="361.6" y="284" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="373.6" y="301" font-size="12.5" fill="#2E6F9E" font-weight="600">ia-user-flows</text>
+<line x1="361.6" y1="328" x2="623.2" y2="328" stroke="#CFE0EE" stroke-width="1.2"/>
+<text x="361.6" y="356" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">DELIVERABLES</text>
+<circle cx="365.6" cy="372" r="2.6" fill="#2E6F9E"/>
+<text x="375.6" y="376" font-size="12.8" fill="#2b2b2b">Content inventory &amp; sitemap</text>
+<circle cx="365.6" cy="396" r="2.6" fill="#2E6F9E"/>
+<text x="375.6" y="400" font-size="12.8" fill="#2b2b2b">Navigation &amp; object model</text>
+<circle cx="365.6" cy="420" r="2.6" fill="#2E6F9E"/>
+<text x="375.6" y="424" font-size="12.8" fill="#2b2b2b">Use cases: happy + sad paths</text>
+<circle cx="365.6" cy="444" r="2.6" fill="#2E6F9E"/>
+<text x="375.6" y="448" font-size="12.8" fill="#2b2b2b">All states → QA inventory</text>
+<polygon points="640.2,209.0 652.2,216.0 640.2,223.0" fill="#1F3A5F"/>
+<rect x="655.2" y="196" width="289.6" height="40" rx="7" fill="#2E6F9E"/>
+<text x="800.0" y="222" font-size="15" fill="#ffffff" font-weight="700" text-anchor="middle">3  DESIGN</text>
+<rect x="655.2" y="242" width="289.6" height="356" rx="7" fill="#EAF1F7" stroke="#CFE0EE"/>
+<text x="669.2" y="270" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">SKILLS</text>
+<rect x="669.2" y="284" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="681.2" y="301" font-size="12.5" fill="#2E6F9E" font-weight="600">design-system</text>
+<line x1="669.2" y1="328" x2="930.8000000000001" y2="328" stroke="#CFE0EE" stroke-width="1.2"/>
+<text x="669.2" y="356" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">DELIVERABLES</text>
+<circle cx="673.2" cy="372" r="2.6" fill="#2E6F9E"/>
+<text x="683.2" y="376" font-size="12.8" fill="#2b2b2b">Wireframes → high-fidelity UI</text>
+<circle cx="673.2" cy="396" r="2.6" fill="#2E6F9E"/>
+<text x="683.2" y="400" font-size="12.8" fill="#2b2b2b">Tokens (from brand) &amp; components</text>
+<circle cx="673.2" cy="420" r="2.6" fill="#2E6F9E"/>
+<text x="683.2" y="424" font-size="12.8" fill="#2b2b2b">All states + responsive</text>
+<circle cx="673.2" cy="444" r="2.6" fill="#2E6F9E"/>
+<text x="683.2" y="448" font-size="12.8" fill="#2b2b2b">Motion specs · Storybook library</text>
+<polygon points="947.8000000000001,209.0 959.8000000000001,216.0 947.8000000000001,223.0" fill="#1F3A5F"/>
+<rect x="962.8000000000001" y="196" width="289.6" height="40" rx="7" fill="#2E6F9E"/>
+<text x="1107.6000000000001" y="222" font-size="15" fill="#ffffff" font-weight="700" text-anchor="middle">4  PROTOTYPE &amp; VALIDATE</text>
+<rect x="962.8000000000001" y="242" width="289.6" height="356" rx="7" fill="#EAF1F7" stroke="#CFE0EE"/>
+<text x="976.8000000000001" y="270" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">SKILLS</text>
+<rect x="976.8000000000001" y="284" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="988.8000000000001" y="301" font-size="12.5" fill="#2E6F9E" font-weight="600">frontend-prototype</text>
+<line x1="976.8000000000001" y1="328" x2="1238.4" y2="328" stroke="#CFE0EE" stroke-width="1.2"/>
+<text x="976.8000000000001" y="356" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">DELIVERABLES</text>
+<circle cx="980.8000000000001" cy="372" r="2.6" fill="#2E6F9E"/>
+<text x="990.8000000000001" y="376" font-size="12.8" fill="#2b2b2b">Coded prototype (on-brand base)</text>
+<circle cx="980.8000000000001" cy="396" r="2.6" fill="#2E6F9E"/>
+<text x="990.8000000000001" y="400" font-size="12.8" fill="#2b2b2b">Separate data layer (JSON / MSW)</text>
+<circle cx="980.8000000000001" cy="420" r="2.6" fill="#2E6F9E"/>
+<text x="990.8000000000001" y="424" font-size="12.8" fill="#2b2b2b">Reusable w/ eng conventions</text>
+<circle cx="980.8000000000001" cy="444" r="2.6" fill="#2E6F9E"/>
+<text x="990.8000000000001" y="448" font-size="12.8" fill="#2b2b2b">Variants v1/v2 → A/B testing</text>
+<polygon points="1255.4,209.0 1267.4,216.0 1255.4,223.0" fill="#1F3A5F"/>
+<rect x="1270.4" y="196" width="289.6" height="40" rx="7" fill="#2E6F9E"/>
+<text x="1415.2" y="222" font-size="15" fill="#ffffff" font-weight="700" text-anchor="middle">5  BUILD &amp; QA</text>
+<rect x="1270.4" y="242" width="289.6" height="356" rx="7" fill="#EAF1F7" stroke="#CFE0EE"/>
+<text x="1284.4" y="270" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">SKILLS</text>
+<rect x="1284.4" y="284" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="1296.4" y="301" font-size="12.5" fill="#2E6F9E" font-weight="600">figma-to-frontend</text>
+<rect x="1284.4" y="316" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="1296.4" y="333" font-size="12.5" fill="#2E6F9E" font-weight="600">design-qa</text>
+<rect x="1284.4" y="348" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="1296.4" y="365" font-size="12.5" fill="#2E6F9E" font-weight="600">accessibility-audit</text>
+<rect x="1284.4" y="380" width="261.6" height="26" rx="13" fill="#ffffff" stroke="#2E6F9E"/>
+<text x="1296.4" y="397" font-size="12.5" fill="#2E6F9E" font-weight="600">heuristic-evaluation</text>
+<line x1="1284.4" y1="424" x2="1546.0" y2="424" stroke="#CFE0EE" stroke-width="1.2"/>
+<text x="1284.4" y="452" font-size="12.5" fill="#1F3A5F" font-weight="700" letter-spacing="1">DELIVERABLES</text>
+<circle cx="1288.4" cy="468" r="2.6" fill="#2E6F9E"/>
+<text x="1298.4" y="472" font-size="12.8" fill="#2b2b2b">Production code (framework)</text>
+<circle cx="1288.4" cy="492" r="2.6" fill="#2E6F9E"/>
+<text x="1298.4" y="496" font-size="12.8" fill="#2b2b2b">Token→theme + component map</text>
+<circle cx="1288.4" cy="516" r="2.6" fill="#2E6F9E"/>
+<text x="1298.4" y="520" font-size="12.8" fill="#2b2b2b">QA log + WCAG AA (DoD)</text>
+<circle cx="1288.4" cy="540" r="2.6" fill="#2E6F9E"/>
+<text x="1298.4" y="544" font-size="12.8" fill="#2b2b2b">Usability review · Storybook</text>
+<rect x="40" y="612" width="0" height="0"/>
+<rect x="40" y="620" width="1520" height="34" rx="7" fill="#F6ECE3" stroke="#B4703A"/>
+<text x="56" y="642" font-size="14" fill="#B4703A" font-weight="700">BRAND is the foundation</text>
+<text x="270" y="642" font-size="13.5" fill="#7a5233">Tokens encode the brand across every stage, palette, type, shape, motion &amp; voice.</text>
+<rect x="40" y="666" width="1520" height="34" rx="7" fill="#E7F3ED" stroke="#2E7D5B"/>
+<text x="56" y="688" font-size="14" fill="#2E7D5B" font-weight="700">ACCESSIBILITY</text>
+<text x="220" y="688" font-size="13.5" fill="#2a5f47">WCAG 2.2 AA is the baseline throughout, verified, not assumed (regulated work may need more).</text>
+<rect x="40" y="712" width="1520" height="34" rx="7" fill="#EDF0F3" stroke="#2E6F9E"/>
+<text x="56" y="734" font-size="14" fill="#1F3A5F" font-weight="700">IN EVERY STAGE</text>
+<text x="255" y="734" font-size="13.5" fill="#5b6b78">Versioning &amp; A/B testing (v1/v2/v3) · Separate data layer · Design documentation &amp; rationale · Engineering handoff &amp; reusable prototype</text>
+<rect x="40" y="760" width="210" height="30" rx="15" fill="#F1EAF7" stroke="#7A4FA0"/>
+<text x="145" y="780" font-size="13" fill="#7A4FA0" font-weight="700" text-anchor="middle">DoR: entry checkpoint</text>
+<rect x="1350" y="760" width="210" height="30" rx="15" fill="#F1EAF7" stroke="#7A4FA0"/>
+<text x="1455" y="780" font-size="13" fill="#7A4FA0" font-weight="700" text-anchor="middle">DoD: exit checkpoint</text>
+<text x="800.0" y="780" font-size="13" fill="#5b6b78" text-anchor="middle">design-dor-dod checks every task: Definition of Ready opens it · Definition of Done closes it</text>
+<rect x="40" y="800" width="16" height="16" rx="4" fill="#2E6F9E" stroke="#2E6F9E"/>
+<text x="62" y="812" font-size="12.5" fill="#2b2b2b">Stage</text>
+<rect x="160" y="800" width="16" height="16" rx="4" fill="#fff" stroke="#ffffff"/>
+<text x="182" y="812" font-size="12.5" fill="#2b2b2b">Skill (chip)</text>
+<rect x="310" y="800" width="16" height="16" rx="4" fill="#1F3A5F" stroke="#1F3A5F"/>
+<text x="332" y="812" font-size="12.5" fill="#2b2b2b">Prisma agent</text>
+<rect x="460" y="800" width="16" height="16" rx="4" fill="#B4703A" stroke="#B4703A"/>
+<text x="482" y="812" font-size="12.5" fill="#2b2b2b">Brand (cross-cutting)</text>
+<rect x="660" y="800" width="16" height="16" rx="4" fill="#2E7D5B" stroke="#2E7D5B"/>
+<text x="682" y="812" font-size="12.5" fill="#2b2b2b">Accessibility</text>
+<rect x="820" y="800" width="16" height="16" rx="4" fill="#7A4FA0" stroke="#7A4FA0"/>
+<text x="842" y="812" font-size="12.5" fill="#2b2b2b">Checkpoint (DoR / DoD)</text>
+</svg>

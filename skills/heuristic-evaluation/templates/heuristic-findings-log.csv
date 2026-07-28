@@ -1,0 +1,5 @@
+#,Location (flow/screen),Heuristic (1-10),Severity (0-4),Problem and user impact,Frequency (low/med/high),Recommended fix,Status (open/fixed/verified),Owner
+1,Checkout / Payment,1 Visibility of system status,3,No feedback after submit; users retry and double-pay,high,Show loading and confirmation states,open,
+2,Onboarding,6 Recognition rather than recall,2,User must remember a code from a prior screen,med,Prefill or show the code inline,open,
+3,Settings,4 Consistency and standards,2,Save button label differs across screens,med,Standardize primary action label,open,
+4,Search,9 Error recovery,3,Empty results give no guidance,high,Add empty state with suggestions,open,

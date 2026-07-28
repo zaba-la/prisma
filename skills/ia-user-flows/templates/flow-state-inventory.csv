@@ -1,0 +1,7 @@
+Flow / Use case,Screen or Step,Path (happy/sad/alternate),State,Trigger,System response,Data source,Validation or Error message,Designed (Y/N),Built (Y/N),Notes
+Checkout,Cart,happy,default,User opens cart,Show items and total,GET /cart,,N,N,
+Checkout,Cart,sad,empty,Cart has no items,Show empty state with CTA,GET /cart,,N,N,
+Checkout,Payment,happy,loading,User submits payment,Show spinner then confirmation,POST /payment,,N,N,
+Checkout,Payment,sad,error,Payment declined,Show error with retry,POST /payment,"Card declined, try another method",N,N,
+Checkout,Payment,sad,permission-denied,Session expired,Redirect to login,,"Session expired, please sign in",N,N,
+Checkout,Confirmation,happy,success,Payment succeeds,Show order confirmation,GET /order/{id},,N,N,

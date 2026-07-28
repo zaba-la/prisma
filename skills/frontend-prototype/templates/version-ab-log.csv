@@ -1,0 +1,4 @@
+Variant,Flow or Screen,Hypothesis,What differs (single change),Success metric,Sample or duration,Result,Decision (win/lose/iterate),Status,Notes
+v1 (control),Checkout / Payment,Baseline,none,Completion rate,2 weeks,,,,
+v2,Checkout / Payment,One-step pay increases completion,Collapse 2 steps into 1,Completion rate,2 weeks,,,,
+v3,Checkout / Payment,Trust badges reduce drop-off,Add trust badges near CTA,Drop-off rate,2 weeks,,,,

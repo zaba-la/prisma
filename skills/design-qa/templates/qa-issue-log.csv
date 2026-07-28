@@ -1,0 +1,5 @@
+#,Pass (pre-handoff/post-impl),Screen or Component,Category (state/responsive/tokens/a11y/content/motion),Issue,Severity (blocker/major/minor/polish),Expected,Actual,Recommended fix,Status (open/fixed/verified),Owner
+1,pre-handoff,Button/primary,state,Disabled state missing,major,Disabled token applied,No disabled style,Add disabled variant from tokens,open,
+2,pre-handoff,Dashboard,responsive,Overflow at 320px,major,Reflows to single column,Content clipped,Define mobile breakpoint,open,
+3,post-impl,Card,tokens,Radius hardcoded,minor,Uses radius token,radius: 6px literal,Bind to radius.md token,open,
+4,post-impl,Form,a11y,Focus not visible,blocker,Visible focus ring,No focus indicator,Add focus-visible style,open,
