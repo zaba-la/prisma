@@ -267,6 +267,15 @@ GPU-friendly properties (transform, opacity), and always honor
 `prefers-reduced-motion` with a reduced or no-motion fallback. We never rely
 on motion alone to convey information.
 
+Motion is the one dimension a deterministic script can't check, so we lean on
+vendored skills for the mechanics instead of building equivalents:
+`find-animation-opportunities` to spot where motion is warranted,
+`improve-animations` to audit and plan fixes, `review-animations` against its
+craft bar, `animation-vocabulary` to name an effect precisely, and
+`apple-design` for spring-based, interruptible motion physics. Each carries a
+house rule, they own the mechanics, our design contract's stated motion
+personality always wins on an aesthetic call.
+
 ---
 
 ## 7. Documentation
@@ -456,6 +465,11 @@ This practice is encoded in a Cowork toolkit the whole team can use:
 - **feedback-triage**, routes lights-out mode's end-of-run feedback to a
   contract change, a prototype change, a build defect, or a new
   requirement.
+- **animation-vocabulary, apple-design, emil-design-eng,
+  find-animation-opportunities, improve-animations, review-animations**,
+  vendored from `emilkowalski/skills` (MIT license) for the motion mechanics
+  a deterministic script can't check. Each carries a house rule: the design
+  contract's stated motion personality wins on any aesthetic call.
 
 See `docs/tools.md` for the recommended external tools (design contract
 generation, the deterministic hook, the visual-diff loop, motion) and the

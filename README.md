@@ -16,7 +16,7 @@ skills, and the human-readable playbook that documents the same standards.
 .
 ├── agents/
 │   └── prisma.md                # Prisma agent definition
-├── skills/                      # 10 invocable skills, one folder per skill
+├── skills/                      # 16 invocable skills, one folder per skill
 │   ├── accessibility-audit/
 │   ├── design-dor-dod/
 │   ├── design-qa/
@@ -26,7 +26,15 @@ skills, and the human-readable playbook that documents the same standards.
 │   ├── frontend-prototype/
 │   ├── frontend-stack-advisor/
 │   ├── heuristic-evaluation/
-│   └── ia-user-flows/
+│   ├── ia-user-flows/
+│   ├── animation-vocabulary/     # vendored, see "Vendored skills" below
+│   ├── apple-design/             # vendored
+│   ├── emil-design-eng/          # vendored
+│   ├── find-animation-opportunities/  # vendored
+│   ├── improve-animations/       # vendored
+│   └── review-animations/        # vendored
+├── LICENSES/                    # Licenses for vendored third-party skills
+│   └── emilkowalski-skills-LICENSE.txt
 └── docs/
     ├── uxui-design-playbook.md  # Human-readable team playbook
     ├── intake-spec.md           # What a requirements handoff must contain
@@ -85,6 +93,26 @@ repeatable procedure for a specific task. Use Prisma when you need design
 thinking; reach for a skill when you need a specific checkpoint, audit, or
 conversion done consistently.
 
+### Vendored skills (motion)
+
+These six come from [emilkowalski/skills](https://github.com/emilkowalski/skills)
+(MIT license, see `LICENSES/emilkowalski-skills-LICENSE.txt`), for the one
+dimension a deterministic check can't cover. Each carries a "Prisma house
+rule" appended at the end of its `SKILL.md`: it owns the mechanics, the
+design contract's stated motion personality wins on any aesthetic call. Two
+of the source repo's skills (`pick-ui-library`, `prototype`) were left out on
+purpose, they duplicate `frontend-stack-advisor` and the multi-concept flow
+already in this toolkit.
+
+| Skill | Use it to... |
+|---|---|
+| [`find-animation-opportunities`](skills/find-animation-opportunities/SKILL.md) | Sweep an interface for moments that would genuinely benefit from motion, and propose exact values. Read-only. |
+| [`improve-animations`](skills/improve-animations/SKILL.md) | Audit a codebase's motion and produce prioritized, self-contained fix plans. Read-only. |
+| [`review-animations`](skills/review-animations/SKILL.md) | Review animation code in a diff against a ten-point craft bar. Default to flagging. |
+| [`animation-vocabulary`](skills/animation-vocabulary/SKILL.md) | Turn a vague description of a motion effect ("the bouncy thing") into its exact term. |
+| [`apple-design`](skills/apple-design/SKILL.md) | Spring-based, interruptible motion physics: velocity, momentum, spatial continuity. |
+| [`emil-design-eng`](skills/emil-design-eng/SKILL.md) | UI polish and component-craft judgment as a reference point, never a substitute for the design contract. |
+
 ## What Prisma produces
 
 Every project converges on the same three artifacts, the only interface
@@ -126,5 +154,9 @@ built for, aesthetic decisions always come from the design contract.
   standard in one, update the other.
 - New skills go in `skills/<name>/SKILL.md`, following the same frontmatter
   format (`name`, `description` with clear triggers) as the existing ones.
+- Vendoring an outside skill: copy it unmodified, add an attribution comment
+  after the frontmatter, append a "Prisma house rule" section at the end, and
+  drop the source license in `LICENSES/`. See `docs/tools.md` for the full
+  checklist and when to vendor vs. just link.
 - Prisma never uses em dashes (—) or en dashes (–) in its output; keep that
   punctuation style when editing the agent, the playbook, or any skill.

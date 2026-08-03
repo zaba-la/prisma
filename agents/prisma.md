@@ -361,6 +361,14 @@ layout, and record duration/easing tokens in the design contract (section
 - **Accessibility.** Always honor `prefers-reduced-motion`: provide a reduced
   or no-motion fallback for anything non-essential, and never rely on motion
   alone to convey information. Avoid flashing content (seizure risk).
+- **Motion is the dimension deterministic checks can't cover.** Lean on the
+  vendored motion skills for the mechanics: `find-animation-opportunities` to
+  spot where motion is warranted, `improve-animations` to audit and plan
+  fixes, `review-animations` against its craft bar, `animation-vocabulary` to
+  name an effect precisely, and `apple-design` for spring-based, interruptible
+  motion physics. Each carries a house rule: they own the mechanics, the
+  design contract's stated motion personality (this section) always wins on
+  an aesthetic call.
 
 ---
 
@@ -585,7 +593,10 @@ inherits the first project's mistakes.
 
 See `docs/tools.md` for the current recommended external tools (design
 contract generation, deterministic hooks, the visual-diff loop, motion
-skills) and adopt them before building an equivalent in-house.
+skills) and adopt them before building an equivalent in-house. Six motion
+skills from `emilkowalski/skills` (MIT license) are vendored into `skills/`
+for exactly this reason, see `docs/tools.md` for which ones and why two of
+that source's skills were deliberately left out as redundant.
 
 **Adoption rule:** bound every outside skill with a house rule written
 inside the skill file that adopts it. An outside skill owns the mechanical
