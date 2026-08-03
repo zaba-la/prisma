@@ -1,26 +1,30 @@
 ---
 name: frontend-prototype
 description: >
-  Generate a working, coded front-end prototype from the design to serve as a
-  dev-ready base for the engineering team. Use when a designer needs a runnable
-  prototype (not just a clickable mockup), triggers like "build a front-end
-  prototype", "make a coded prototype", "prototype this flow in React/shadcn",
-  "create a coded base for developers", or "turn this flow into a working
-  prototype". Uses the project's chosen framework and design tokens, covers the
-  key flows and states, and is clearly labeled prototype-grade vs production.
+  Generate a working, coded front-end prototype from the design contract,
+  the artifact a build is judged against, plus its companion build brief.
+  Use when a designer needs a runnable prototype (not just a clickable
+  mockup), triggers like "build a front-end prototype", "make a coded
+  prototype", "prototype this flow in React/shadcn", "write the build
+  brief", or "turn this flow into a working prototype". Uses the project's
+  chosen framework and design tokens, covers the key flows and states, and
+  is clearly labeled prototype-grade vs production. Prisma does not write
+  the production implementation, build agents do.
 ---
 
 # Front-end Prototype
 
-Produce a runnable, coded prototype that validates flows and interactions and
-gives engineering a concrete base to build on. This is earlier and lighter than
-production implementation, its value is speed, realism, and a shared reference,
-not final code.
+Produce a runnable, coded prototype: **the contract a build is judged
+against**, not a base someone might rebuild from scratch. This is earlier
+and lighter than production implementation, its value is speed, realism,
+and an unambiguous reference. Alongside it, produce the **build brief**, the
+second of the two deliverables this skill is responsible for.
 
 ## When to use
 After user flows / wireframes (or high-fidelity) and after the framework is
 decided. Use it to validate interactions, pressure-test the design in a real
-browser/device, and hand engineering something they can run and extend.
+browser/device, and hand build agents the reference their output is judged
+against.
 
 ## Prerequisites
 - Framework/library decided (see `frontend-stack-advisor`).
@@ -73,7 +77,22 @@ exists.
    operability, visible focus, labels.
 5. **Label reality.** Clearly mark what is real vs mocked (data, auth, backend),
    what is prototype-grade and must be hardened for production, and known gaps.
-   This is a base/reference, not a finished feature.
+   This is the contract, not a finished feature, the production implementation
+   is a build agent's job, not this skill's.
+6. **Write the build brief.** Produce it alongside the prototype, not as an
+   afterthought (see below).
+
+## The build brief
+The prototype's companion deliverable, written so a build agent can verify
+its own output without asking a human. Cover:
+- **Scope edges:** what this round explicitly does and doesn't include.
+- **Acceptance checks:** concrete, self-runnable checks (e.g. "every listed
+  route renders the empty, loading, and error state", "focus order matches
+  the flow's tab sequence"), not vague quality language.
+- **Deliberately open states:** edge cases you're choosing not to design yet,
+  named so a build agent doesn't have to guess or invent one.
+Write both artifacts together: the prototype shows what "right" looks like,
+the build brief states how a build agent (or `design-qa`) checks for it.
 
 ## Data layer: keep data separate from UI
 Never hardcode dynamic data inside components. Model it as its own layer so the
@@ -101,12 +120,13 @@ prototype behaves like the real app and the swap to production is mechanical.
   is mocked vs real, and how to switch to live endpoints.
 
 ## Output
-A runnable prototype (repo or project with run instructions), the `/data`
-fixtures and the data-access module (plus MSW/json-server handlers if used), and
-a short README covering scope, flows included, mocked vs real data, the data
-contract, and known gaps, plus a brief handoff note for engineering. Keep the
-code readable and close to the project's conventions so it can be extended
-rather than thrown away where that makes sense.
+Two deliverables. A runnable prototype (repo or project with run
+instructions), the `/data` fixtures and the data-access module (plus
+MSW/json-server handlers if used), and a short README covering scope, flows
+included, mocked vs real data, the data contract, and known gaps. And the
+build brief: scope edges, self-runnable acceptance checks, and deliberately
+open states. Keep the code readable and close to the project's conventions
+so a build agent can study it directly.
 
 ## Variants & A/B testing
 A prototype often needs to compare alternatives (v1, v2, v3) before committing.
@@ -128,13 +148,20 @@ Use the bundled `templates/version-ab-log.csv` to track variants (v1/v2/v3), eac
 with its hypothesis, the single change under test, the success metric, result, and
 decision.
 
-## Distinction from `figma-to-frontend`
-- **frontend-prototype:** earlier, exploratory/validation, may cut corners,
-  explicitly labeled as a base, optimized for speed and coverage of key flows.
-- **figma-to-frontend:** production implementation of finalized designs, full
-  fidelity to tokens/components, no rogue values, ready to ship.
+## Distinction from `figma-intake` and production build
+- **frontend-prototype:** produces the contract, the prototype and build
+  brief a build is judged against. Realistic, but explicitly not
+  production code.
+- **figma-intake:** the other direction, extracts a design contract out of
+  an existing Figma file or live product (Path A intake). Neither skill
+  writes production code.
+- **Production implementation:** done by a build agent elsewhere in the
+  pipeline, using this skill's prototype and build brief as its reference.
+  Prisma's role after that point is `design-qa`'s visual diff, not
+  building.
 
 ## Notes
 - Don't gold-plate a prototype; its job is to answer questions and de-risk build.
-- Pair with `design-qa` to review the prototype's states and interactions, and
-  with `frontend-stack-advisor` if the prototype reveals the stack is a poor fit.
+- Pair with `design-qa` to review the prototype's states and interactions
+  once a build exists, and with `frontend-stack-advisor` if the prototype
+  reveals the stack is a poor fit.

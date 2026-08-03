@@ -3,25 +3,31 @@ name: ia-user-flows
 description: >
   Define the information architecture and user flows for a product or feature, content inventory, sitemap, navigation model, object/entity model, and
   end-to-end flows that cover every state. Use in the Structure phase, after
-  discovery/research and before wireframes, triggers like "map the user flow",
+  intake and before wireframes, triggers like "map the user flow",
   "create a sitemap", "information architecture", "define the navigation", "what
   states does this flow need?", "flow for this feature", or "manage the use
   cases / happy and sad paths". Its object model feeds the prototype's data
-  contract and the design system, and its per-flow state inventory becomes the
+  contract and the design contract, and its per-flow state inventory becomes the
   checklist design-qa verifies against.
 ---
 
 # Information Architecture & User Flows
 
 Give the product its structure and define how people move through it. This is the
-Structure phase: it turns discovery/research into the skeleton that wireframes,
-the design system, the prototype, and QA all depend on. Its main risk is missing
+Structure phase: it turns intake into the skeleton that wireframes,
+the design contract, the prototype, and QA all depend on. Its main risk is missing
 states and edge cases, so completeness is the point.
 
+This skill carries the most weight on **intake Path B** (requirements only):
+nothing upstream has defined the sad paths yet, and if this skill doesn't
+name them, no one will until a build agent has to invent one. On Path A,
+some of this may already exist in the live product, extracted by
+`figma-intake`, use this skill to fill the gaps that extraction reports.
+
 ## When to use
-After discovery and research, before wireframes. Adapt depth to project mode:
-redesigns emphasize the content audit and old→new mapping; greenfield emphasizes
-the object model and flows.
+After intake, before wireframes. Adapt depth to the intake path: Path A
+emphasizes the content audit and old→new mapping; Path B emphasizes the
+object model and flows.
 
 ## Part A: Information architecture
 - **Content inventory & audit** (essential for redesigns): list existing

@@ -17,10 +17,15 @@ prioritized, severity-rated issue list. It's a fast, expert "discount usability"
 method, not a substitute for testing with real users, but a strong complement.
 
 ## When to use
-- **In research:** audit the current product (redesigns) or a competitor to
-  surface usability problems and opportunities before designing.
+- **Before designing (Path A, or Path B against a competitor):** audit the
+  current product or a competitor to surface usability problems and
+  opportunities. Prisma doesn't run primary research, but this expert review
+  of something that already exists isn't primary research, it's fair game
+  on both intake paths.
 - **As expert review:** critique a new design/build against principles, alongside
-  `design-qa`, before or after usability testing.
+  `design-qa`, before or after usability testing. Apply the same fresh-context
+  rule as `design-qa`: run this blind to the design conversation, briefed
+  only by the artifact.
 
 ## The heuristics (Nielsen's 10)
 1. Visibility of system status.

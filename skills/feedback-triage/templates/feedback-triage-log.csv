@@ -1,0 +1,5 @@
+#,Original feedback item,Route (contract/prototype/build-defect/new-requirement),Severity (blocker/major/minor/polish),Evidence or linked finding,Notes,Status (open/routed/resolved)
+1,"The whole dashboard feels too cramped",contract,major,,"System-wide spacing token issue, not one screen",open
+2,"The date on the invoice detail screen is wrong format",prototype,minor,,"Single-screen fix, not a token issue",open
+3,"The build's button radius doesn't match the design",build-defect,major,diffs/button-radius.png,"Flagged by design-qa post-implementation pass",open
+4,"Can we also get a bulk-export feature",new-requirement,,,"Outside original intake scope edges, needs its own DoR pass",open

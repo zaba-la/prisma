@@ -2,21 +2,28 @@
 name: frontend-stack-advisor
 description: >
   Recommend or decide the front-end framework and UI library for a project based
-  on platform, project type, and constraints. Use during project discovery /
-  refinement, before locking design tokens or high-fidelity UI, triggers like
-  "which framework should we use?", "recommend a UI library", "shadcn or MUI?",
-  "what should we build this dashboard in?", "mobile app, Material or HIG?",
-  or "pick the front-end stack". Produces a recommendation with rationale,
-  alternatives, and trade-offs, decided with engineering; the outcome becomes a
-  DoR constraint and the basis for the design system's token/component mapping.
+  on platform, project type, and constraints. Use at intake / refinement on
+  Path B (requirements only, no existing Figma or product), before locking
+  design tokens or high-fidelity UI, triggers like "which framework should we
+  use?", "recommend a UI library", "shadcn or MUI?", "what should we build
+  this dashboard in?", "mobile app, Material or HIG?", or "pick the
+  front-end stack". Produces a recommendation with rationale, alternatives,
+  and trade-offs, decided with engineering; the outcome becomes an intake
+  constraint and the basis for the design contract's token/component
+  mapping.
 ---
 
 # Front-end Stack Advisor
 
-Decide the front-end framework/library early, in discovery or the first
+Decide the front-end framework/library early, at intake or the first
 refinement, because design tokens and components map to whatever is chosen, and
 high-fidelity design shouldn't start before it's settled. The recommendation is
 made **with engineering**, not imposed on them.
+
+This mostly matters on **intake Path B** (requirements only, nothing
+pre-decided). On **Path A** the stack is usually already decided by whatever
+the client's Figma file or live product already uses, confirm it rather
+than reopening the choice, unless something concrete argues for a change.
 
 ## Step 1: Gather the deciding inputs
 - **Platform:** responsive web, native iOS, native Android, cross-platform
@@ -65,9 +72,9 @@ brand fit). Align to the platform's design language (Material on Android, HIG on
 iOS) unless there's a deliberate reason not to.
 
 ## Step 4: Record the decision
-Capture the decision (with engineering sign-off) as a DoR constraint and the
-basis for the design system: tokens will map to this framework's theme config,
-and components will mirror its API. Note the date and who decided.
+Capture the decision (with engineering sign-off) as an intake constraint and
+the basis for the design contract: tokens will map to this framework's theme
+config, and components will mirror its API. Note the date and who decided.
 
 ## Notes
 - Team familiarity and existing code are legitimate, often decisive factors, the "best" library the team can't maintain is the wrong one.

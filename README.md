@@ -1,11 +1,14 @@
-# Prisma — UX/UI Design Agent
+# Prisma: UX/UI Design Agent
 
-Prisma is a UX/UI design agent: a senior design partner that
-covers the full product design lifecycle (discovery, information
-architecture, flows, wireframes, high-fidelity UI, motion, design system,
-documentation, QA, and developer handoff). This repository is the toolkit
-the design team uses inside Claude Code / Cowork: the agent, its skills, and
-the human-readable playbook that documents the same standards.
+Prisma is a UX/UI design agent: one stage in a multi-agent build pipeline,
+not a solitary designer who owns a project end to end. It takes
+requirements in (no primary discovery, that happens upstream) and produces
+three artifacts, a **design contract**, a coded **prototype**, and a **build
+brief**, then proves whether a build matches them with a visual diff.
+Prisma never writes production code and never blocks a build agent,
+findings travel as severity-tagged recommendations. This repository is the
+toolkit the design team uses inside Claude Code / Cowork: the agent, its
+skills, and the human-readable playbook that documents the same standards.
 
 ## Repository structure
 
@@ -13,18 +16,22 @@ the human-readable playbook that documents the same standards.
 .
 ├── agents/
 │   └── prisma.md                # Prisma agent definition
-├── skills/                      # 9 invocable skills, one folder per skill
+├── skills/                      # 10 invocable skills, one folder per skill
 │   ├── accessibility-audit/
 │   ├── design-dor-dod/
 │   ├── design-qa/
 │   ├── design-system/
-│   ├── figma-to-frontend/
+│   ├── feedback-triage/
+│   ├── figma-intake/
 │   ├── frontend-prototype/
 │   ├── frontend-stack-advisor/
 │   ├── heuristic-evaluation/
 │   └── ia-user-flows/
 └── docs/
     ├── uxui-design-playbook.md  # Human-readable team playbook
+    ├── intake-spec.md           # What a requirements handoff must contain
+    ├── craft-floor.md           # The platform-level, machine-checked rule list
+    ├── tools.md                 # Recommended external tools and the adoption rule
     └── assets/
         ├── prisma-process.png
         └── prisma-process.svg
@@ -62,28 +69,51 @@ the new agent and skills.
 
 | Skill | Use it to... |
 |---|---|
-| [`frontend-stack-advisor`](skills/frontend-stack-advisor/SKILL.md) | Choose the front-end framework/library during discovery, before locking tokens or high-fidelity UI. |
+| [`design-dor-dod`](skills/design-dor-dod/SKILL.md) | Run intake against the intake spec and return Ready / Not Ready, then validate the Definition of Done. |
+| [`figma-intake`](skills/figma-intake/SKILL.md) | Intake path A: extract the design contract from an existing Figma file or live product, no production code. |
+| [`frontend-stack-advisor`](skills/frontend-stack-advisor/SKILL.md) | Choose the front-end framework/library, mainly on intake path B, before locking tokens or high-fidelity UI. |
 | [`ia-user-flows`](skills/ia-user-flows/SKILL.md) | Define information architecture and user flows covering every state. |
-| [`design-system`](skills/design-system/SKILL.md) | Create, audit, extend, or consume a design system (tokens, components, governance). |
-| [`frontend-prototype`](skills/frontend-prototype/SKILL.md) | Generate a working front-end prototype as a dev-ready base. |
-| [`figma-to-frontend`](skills/figma-to-frontend/SKILL.md) | Convert a finalized Figma design into production code. |
-| [`design-qa`](skills/design-qa/SKILL.md) | Run a two-pass quality review: pre-handoff and post-implementation. |
+| [`design-system`](skills/design-system/SKILL.md) | Produce or audit the design contract (tokens, components, governance). |
+| [`frontend-prototype`](skills/frontend-prototype/SKILL.md) | Build the coded prototype (the contract a build is judged against) and its companion build brief. |
+| [`design-qa`](skills/design-qa/SKILL.md) | Run the advisory, layered QA pass: pre-handoff and a build-vs-prototype visual diff. |
 | [`heuristic-evaluation`](skills/heuristic-evaluation/SKILL.md) | Evaluate a product against Nielsen's 10 heuristics, with severity-rated findings. |
-| [`accessibility-audit`](skills/accessibility-audit/SKILL.md) | Audit accessibility against WCAG 2.2 AA with prioritized remediation. |
-| [`design-dor-dod`](skills/design-dor-dod/SKILL.md) | Generate or validate a design task's Definition of Ready / Definition of Done. |
+| [`accessibility-audit`](skills/accessibility-audit/SKILL.md) | Audit accessibility against WCAG 2.2 AA, run early wherever possible. |
+| [`feedback-triage`](skills/feedback-triage/SKILL.md) | In lights-out mode, route mixed end-of-run feedback to a contract change, prototype change, build defect, or new requirement. |
 
 Prisma is the judgment for design work end to end; each skill is the
 repeatable procedure for a specific task. Use Prisma when you need design
 thinking; reach for a skill when you need a specific checkpoint, audit, or
 conversion done consistently.
 
+## What Prisma produces
+
+Every project converges on the same three artifacts, the only interface
+between Prisma and the build agents downstream:
+
+1. **Design contract**, tokens, type scale, spacing, color roles, motion
+   rules, who it's for and how it should feel, plus the assumption register
+   from intake. See `docs/intake-spec.md` and the `design-system` skill.
+2. **Prototype**, the core experience built in the real system with
+   realistic data. What a build is judged against.
+3. **Build brief**, scope edges, acceptance checks a build agent can run on
+   itself, and the edge states deliberately left open.
+
 ## Playbook
 
 [`docs/uxui-design-playbook.md`](docs/uxui-design-playbook.md) is the
 human-readable version of the same standards Prisma follows: what we
-believe, the three project modes, the design lifecycle, DoR/DoD, design
-system, motion, documentation, QA, accessibility, and handoff. Use it for
-onboarding new team members and as a reference in tickets.
+believe, the two intake paths, the two operating modes, the design
+lifecycle, DoR/DoD, the design contract, motion, documentation, QA,
+accessibility, and handoff. Use it for onboarding new team members and as a
+reference in tickets.
+
+## Recommended tools
+
+[`docs/tools.md`](docs/tools.md) lists the external tools this toolkit
+recommends adopting rather than rebuilding (design contract generation, a
+deterministic edit-time check, the visual-diff loop, motion), and the house
+rule for bounding any outside skill: it owns the mechanical part it was
+built for, aesthetic decisions always come from the design contract.
 
 ## Process diagram
 
@@ -97,4 +127,4 @@ onboarding new team members and as a reference in tickets.
 - New skills go in `skills/<name>/SKILL.md`, following the same frontmatter
   format (`name`, `description` with clear triggers) as the existing ones.
 - Prisma never uses em dashes (—) or en dashes (–) in its output; keep that
-  punctuation style when editing the agent or the playbook.
+  punctuation style when editing the agent, the playbook, or any skill.

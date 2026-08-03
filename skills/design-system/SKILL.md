@@ -1,31 +1,37 @@
 ---
 name: design-system
 description: >
-  Create, audit, extend, or consume a design system for a software product. Use
-  when the work involves design tokens, component libraries, theming, or system
-  governance, triggers like "set up a design system", "audit our design
-  system", "define our design tokens", "add a component to the system", "is this
-  in the system already?", or "map our tokens to Tailwind/shadcn". Handles all
-  three project modes (greenfield, redesign, existing DS) and keeps design 1:1
-  with the front-end framework.
+  Produce or audit the design contract, the single hand-maintained source of
+  truth for one project's tokens, type scale, spacing, color roles, motion
+  rules, and component specs. Use when the work involves design tokens,
+  component libraries, theming, or system governance, triggers like "set up
+  the design contract", "audit our design system", "define our design
+  tokens", "add a component to the contract", "is this in the contract
+  already?", or "map our tokens to Tailwind/shadcn". Handles both intake
+  paths (greenfield/Path B, and auditing/extending an existing system on
+  Path A) and keeps design 1:1 with the front-end framework.
 ---
 
-# Design System
+# Design System → the Design Contract
 
-Treat the design system as a product with foundations → primitives → patterns.
-Reuse before creating; propose system changes through governance, never one-offs.
+Treat the design contract as a product with foundations → primitives →
+patterns, not a box labeled "design system." It is the single, hand-maintained
+source of truth for one project, versioned as that project evolves, never a
+generated snapshot edited by hand. Reuse before creating; propose contract
+changes through governance, never one-offs.
 
 ## Step 1: Determine the situation
-Pick the path that matches the project mode:
-- **Create (greenfield):** no system yet → build foundations alongside the first
-  real screens; don't gold-plate before screens exist.
-- **Audit / extend (redesign or maturing DS):** inventory what exists, find
-  gaps and inconsistencies, extend deliberately.
-- **Consume (existing DS):** use the system faithfully; document any needed gap
-  as a formal proposal.
+Pick the path that matches intake (see `agents/prisma.md` §1):
+- **Create (Path B, greenfield):** no contract yet → build foundations
+  alongside the first real screens; don't gold-plate before screens exist.
+- **Audit / extend (Path A, redesign or maturing DS):** run `figma-intake`
+  first to extract what exists, then inventory it, find gaps and
+  inconsistencies, extend deliberately.
+- **Consume (existing DS, Path A with a mature system):** use the system
+  faithfully; document any needed gap as a formal proposal.
 
 Confirm the front-end framework (e.g. React + shadcn/ui, Tailwind, MUI, SwiftUI)
-so the system maps 1:1 to code.
+so the contract maps 1:1 to code.
 
 ## Step 2: Tokens (source of truth), starting from the brand
 Tokens must originate from the brand, not arbitrary values. Before defining them,
@@ -50,7 +56,17 @@ For each component define: anatomy, variants, states (default, hover, focus,
 active, disabled, loading, empty, error), props/API, do's and don'ts, and
 accessibility behavior (roles, keyboard, focus, labels). Name variants/props to
 mirror the framework's actual API so translation is mechanical (e.g. a Button's
-variant set matches shadcn/ui `variant`/`size`).
+variant set matches shadcn/ui `variant`/`size`). Check every value against
+`docs/craft-floor.md` before it ships, don't let a component violate a
+platform-level rule the floor already caught once.
+
+## Step 3a: Who it's for, and the assumption register
+A design contract is not only tokens and components. Record, in concrete
+enough language that a fresh-context critic (see `design-qa`) can check
+output against it: who the product is for, and how it should feel. Carry
+forward the numbered assumption register from intake (`design-dor-dod`) as a
+living section of the contract, not a one-time note that gets lost after
+kickoff.
 
 ## Step 3b: Living library (Storybook)
 When the team uses Storybook, it is a first-class deliverable of the design
@@ -89,6 +105,9 @@ docs, and accessibility). Be explicit about exceptions and their reasons.
   brand.
 - Consuming an existing DS: deviations must be formal, documented exceptions
   routed to the system owners, never silent divergence.
-- Pair with `figma-to-frontend` for token/component extraction from Figma, and
-  with the `brand-applicator` skill when producing brand-styled deliverables
-  (decks, docs, carousels, UI) from the defined brand.
+- Pair with `figma-intake` for token/component extraction from an existing
+  Figma file or live product (Path A), and with the `brand-applicator` skill
+  when producing brand-styled deliverables (decks, docs, carousels, UI) from
+  the defined brand.
+- This skill never produces production code. It produces the contract that
+  `frontend-prototype` builds and that build agents implement against.

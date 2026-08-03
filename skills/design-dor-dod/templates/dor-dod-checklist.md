@@ -1,38 +1,46 @@
-# DoR / DoD Checklist
+# Intake / DoR / DoD Checklist
 
-Project / feature: ____________________   Task / story: ____________________
-Project mode: [ ] Greenfield  [ ] Redesign  [ ] Existing DS
+Project / feature: ____________________   Task / requirement: ____________________
+Intake path: [ ] A, existing Figma or live product  [ ] B, requirements only
+Operating mode: [ ] Lights out  [ ] Client in the loop
 Platform: ____________   Front-end stack: ____________   Date: __________
 
-Legend: [x] present · [~] drafted (assumption, needs confirmation) · [ ] missing
+Legend: [x] present · [~] assumption (logged in the register below) · [ ] missing
 
-## Definition of Ready (before designing)
+## Intake (against docs/intake-spec.md)
 
-- [ ] 1. Problem and goal: user problem plus business outcome it serves.
-- [ ] 2. Users and context: who, device, moment in the journey.
-- [ ] 3. Scope: what is explicitly in and out.
-- [ ] 4. Success criteria: measurable or observable signal of success.
-- [ ] 5. Constraints: platform, framework, existing DS/components, data,
-      performance, legal/compliance, brand.
-- [ ] 6. Inputs available: research, analytics, prior designs, content, decisions.
-- [ ] 7. Dependencies: what must exist first and who owns it.
-- [ ] 8. Accessibility and localization: WCAG target, RTL, languages, dynamic type.
+- [ ] 1. Jobs to be done, stated without reference to software.
+- [ ] 2. How the user does it today (the workaround).
+- [ ] 3. Users, plural, with role, frequency, expertise, device.
+- [ ] 4. User stories with the "so that" clause intact.
+- [ ] 5. Realistic data: real fields, ranges, volumes, plus the ugly cases.
+- [ ] 6. Scope edges: what's explicitly out of this release.
+- [ ] 7. Failure modes in the domain (useful, not required).
+- [ ] 8. Hard constraints: stack, devices, accessibility target, localization,
+      brand (useful, not required).
+- [ ] 9. Success signal: how we'll know it worked (useful, not required).
 
-Verdict: [ ] READY   [ ] NOT READY
-To unblock (smallest effort first): ______________________________________
+Verdict: [ ] COMPLETE   [ ] COMPLETE WITH ASSUMPTIONS   [ ] BLOCKED
+Blocked only applies to items 1, 3, or 5. If blocked, name which one and the
+smallest action to unblock it: ______________________________________
+
+### Assumption register
+| # | Gap | Assumption made | Why | What changes if wrong |
+|---|-----|------------------|-----|------------------------|
+|   |     |                  |     |                        |
 
 ## Definition of Done (before handoff)
 
-- [ ] 1. Solves the stated problem and meets the success criteria.
+- [ ] 1. Solves the stated jobs to be done and meets the intake success signal.
 - [ ] 2. All relevant states and responsive breakpoints designed.
-- [ ] 3. Built from the design system / tokens (deviations documented as exceptions).
+- [ ] 3. Built from the design contract (deviations documented as exceptions).
 - [ ] 4. Meets WCAG 2.2 AA, verified (contrast, focus, keyboard, labels, reduced motion).
 - [ ] 5. Motion and transitions specified where they carry meaning.
-- [ ] 6. Documentation and rationale complete.
-- [ ] 7. Content and copy finalized (no placeholders).
-- [ ] 8. Developer handoff ready (tokens and components map to the framework, assets exported, specs unambiguous).
-- [ ] 9. Design QA passed and reviewed with engineering / PM.
-- [ ] 10. Open questions, assumptions, and risks listed.
+- [ ] 6. Build brief acceptance checks pass, visual diff against the prototype attached.
+- [ ] 7. Feel verdict run (client concept review, or Prisma's own fresh-context pass in lights out).
+- [ ] 8. Documentation and design contract rationale complete.
+- [ ] 9. Content and copy finalized (no placeholders).
+- [ ] 10. Assumption register up to date with every open question and risk.
 
 Verdict: [ ] DONE   [ ] NOT DONE
 Gaps and fixes: __________________________________________________________

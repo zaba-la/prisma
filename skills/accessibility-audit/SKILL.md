@@ -17,6 +17,14 @@ Assess a design or implementation against WCAG 2.2 AA and return an actionable,
 prioritized fix list. Verify, don't assume, and test with real assistive
 technology when auditing a build.
 
+Run this as early as possible, it belongs primarily in the cheap layers of
+QA (creation-time context and the deterministic detector, see
+`agents/prisma.md` §7), not as a phase-5 discovery. By the time an
+accessibility gap reaches judgment critique it's remediation, not
+prevention. When you do run this as judgment critique, apply the same
+fresh-context rule as `design-qa`: no visibility into the design
+conversation, briefed only by the artifact.
+
 ## Step 0: Set the bar
 Confirm the target conformance level. AA is the baseline. Raise the question if
 the project is regulated (healthcare, finance, government) or the client
