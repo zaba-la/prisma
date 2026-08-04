@@ -44,12 +44,22 @@ section, see `agents/prisma.md` §4) and the visual-diff spec in `design-qa`.
 
 ## How we measure it
 
-1. **Capture.** Screenshot the prototype and the build at the same named
-   viewports, same route and state, same seeded data.
-2. **Diff.** A perceptual diff, not a naive pixel-exact comparison, with a
-   tolerance threshold for anti-aliasing and font-rendering noise. Compare
-   per region, not only the whole page, so a small real deviation is not
-   diluted by a mostly-matching screen.
+1. **Capture.** Two things per state, not one: a screenshot of the prototype
+   and the build at the same named viewports, same route and state, same
+   seeded data, and a computed-style/token manifest (the resolved CSS
+   variables and rendered values actually used) for that same state. The
+   manifest is what the structural token check below reads, the screenshot
+   is what the perceptual diff reads.
+2. **Diff.** Two mechanisms, not one, matched to what each is good at:
+   - **Structural, for tokens.** Compare the captured manifest's values
+     against the exact token values in the design contract. Exact match or
+     not, no tolerance band, this is deterministic and byte-comparable, the
+     same class of evidence as a passing test.
+   - **Perceptual, for everything else.** A tolerance-based diff for layout,
+     spacing, and composition, where "close enough" is a real category and
+     anti-aliasing/font-rendering noise has to be tolerated. Compare per
+     region, not only the whole page, so a small real deviation is not
+     diluted by a mostly-matching screen.
 3. **Severity.**
    - **Blocker:** a token or spacing deviation on a first-impression
      surface, or a required state missing entirely.
@@ -70,22 +80,25 @@ left open here on purpose. Fix them from what the pilot's seeded deviations
 actually show, not from a guess made before anything has run against a real
 build.
 
-### Token correctness needs a structural check, not just a perceptual one
+### Why the structural/perceptual split matters
 
-A near-miss token (the case above) is the hardest input for a pure
-pixel/perceptual diff: loosen the tolerance enough to survive anti-aliasing
-and font rendering noise, and it also stops catching a color that is one
-palette step off. Tighten it enough to catch the near-miss, and it drowns in
-false positives from rendering noise alone. A perceptual diff cannot satisfy
-both at once.
+A near-miss token is the hardest input for a pure perceptual diff: loosen
+the tolerance enough to survive rendering noise and it stops catching a
+one-step-off palette substitution, tighten it enough to catch that and it
+drowns in the same noise. No single tolerance satisfies both, which is why
+the split above exists rather than one diff mechanism doing everything.
 
-So token fidelity should be checked structurally, not inferred from pixels:
-compare the actual computed value the build used (the resolved CSS
-variable, the rendered color) against the exact value the design contract
-specifies for that token, an exact match or not, with no tolerance band.
-Reserve the perceptual, tolerance-based diff above for what does not reduce
-to a lookup, layout, spacing, composition, where "close enough" is a
-meaningful category and antialiasing noise has to be tolerated.
+Two consequences worth keeping in view. First, this boundary was derived
+twice, independently, from opposite ends: once here, from the severity
+ladder (a wrong token is never "sort of right," so it can never fall to a
+perceptual "close enough"), and once from the evidence side (a probe typed
+as visual-equivalence must not be allowed to satisfy a token-correctness
+item). Two independent routes landing on the same partition is a much
+stronger signal that it is real than either argument alone. Second, it
+shrinks the hard part of tolerance calibration: the structural half is
+exact and needs no threshold at all, so the seeded-mismatch pilot's
+tolerance tuning (see below) only has to cover layout and spacing, not the
+near-miss token case, which was the least tunable input in the whole bar.
 
 ## Advisory internally, no external claim yet
 
@@ -104,19 +117,25 @@ A pilot where the check simply passes proves nothing, it only shows the
 screenshots matched. Before the pilot build runs, plant known deviations,
 for example:
 
-- one off-token color
+- one off-token color, including at least one near-miss (a neighboring
+  palette step, not just an obviously wrong one), to exercise the
+  structural check rather than the perceptual tolerance
 - one spacing value off the scale
 - one missing state (an empty state omitted, for instance)
 - one off-breakpoint layout issue
 
-Run the fidelity check against the seeded build and record two numbers:
+Run the fidelity check against the seeded build and record two numbers,
+scoped to what each mechanism actually needs to prove:
 
-- **Catch rate:** how many of the seeded deviations were flagged, and at
-  what severity.
-- **False-positive rate:** what got flagged that was not a real deviation
-  (anti-aliasing, font rendering, one-pixel shifts), and at what tolerance
-  threshold those disappear.
+- **Structural (tokens):** catch rate should be exact, every seeded token
+  deviation flagged, including the near-miss, since there is no tolerance
+  band to get wrong. Anything missed here is a bug in the check, not a
+  calibration question.
+- **Perceptual (layout/spacing), catch rate and false-positive rate:** how
+  many of the seeded layout/spacing deviations were flagged, and what got
+  flagged that was not a real deviation (anti-aliasing, font rendering,
+  one-pixel shifts), at what tolerance threshold those disappear.
 
-Adjust the tolerances and severity mapping above based on these results, and
-version this document afterward. An unexercised verification path is
-presumed broken until it has caught something real.
+Adjust the perceptual tolerance and the severity mapping above based on
+these results, and version this document afterward. An unexercised
+verification path is presumed broken until it has caught something real.
