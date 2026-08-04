@@ -39,6 +39,7 @@ skills, and the human-readable playbook that documents the same standards.
     ├── uxui-design-playbook.md  # Human-readable team playbook
     ├── intake-spec.md           # What a requirements handoff must contain
     ├── craft-floor.md           # The platform-level, machine-checked rule list
+    ├── design-fidelity-bar.md   # Provisional definition of "faithful to the design"
     ├── tools.md                 # Recommended external tools and the adoption rule
     └── assets/
         ├── prisma-process.png
@@ -125,6 +126,13 @@ between Prisma and the build agents downstream:
    realistic data. What a build is judged against.
 3. **Build brief**, scope edges, acceptance checks a build agent can run on
    itself, and the edge states deliberately left open.
+
+A build gets checked against these with a visual diff, scored against
+[`docs/design-fidelity-bar.md`](docs/design-fidelity-bar.md), the
+provisional definition of what "faithful to the design" means. It is marked
+provisional on purpose: it is meant to be validated (and corrected) by
+running it against a build with known, seeded deviations before it is
+trusted, see the document itself for that test.
 
 ## Playbook
 

@@ -59,7 +59,10 @@ on catching it here every time.
   matching viewports and attach the comparison image. A QA claim without a
   comparison image is not evidence. See `docs/tools.md` for the recommended
   tooling: agent-browser for the render/screenshot loop, Playwright for
-  repeatable acceptance checks against the build brief in CI.
+  repeatable acceptance checks against the build brief in CI. Score the diff
+  against `docs/design-fidelity-bar.md`, the provisional definition of what
+  "faithful to the design" means and where it becomes a client-facing claim
+  versus stays internal-only.
 - **Interaction & motion:** match spec, including interrupt/reverse behavior.
 - **State & responsive coverage:** verified in the real build, not just design.
 - **Accessibility in the build:** verify with keyboard and a screen reader, not
