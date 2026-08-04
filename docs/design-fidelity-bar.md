@@ -15,7 +15,14 @@ section, see `agents/prisma.md` §4) and the visual-diff spec in `design-qa`.
 - **Token fidelity.** Every color, spacing, radius, and type value in the
   build resolves to a token in the design contract, or is a documented
   exception. A value that resolves to the wrong token (off-scale, wrong
-  semantic role) is a deviation, not just a hardcoded value is.
+  semantic role) is a deviation, not just a hardcoded value is. **Token
+  correctness is categorical, not a matter of visual closeness.** A wrong
+  token that is visually adjacent to the right one (a neighboring step in
+  the same palette) is exactly as much a deviation as a token that is
+  wildly off, the severity does not soften with proximity, see the severity
+  mapping below. A design contract exists so "close enough" stops being a
+  valid judgment; if a rebrand later moves that palette step, a near-miss
+  value drifts silently while a correctly-tokened one updates for free.
 - **State completeness.** Every state named in the prototype and the build
   brief (default, hover, focus, active, disabled, loading, empty, error,
   success, overflow) exists in the build. A missing state is a deviation,
@@ -46,9 +53,13 @@ section, see `agents/prisma.md` §4) and the visual-diff spec in `design-qa`.
 3. **Severity.**
    - **Blocker:** a token or spacing deviation on a first-impression
      surface, or a required state missing entirely.
-   - **Major:** a deviation elsewhere, or a state present but visibly wrong.
-   - **Minor:** a difference above the noise floor but below what a user
-     would notice unprompted.
+   - **Major:** a token or spacing deviation elsewhere (including a
+     near-miss, visually adjacent wrong token, see above), or a state
+     present but visibly wrong.
+   - **Minor:** a real, non-token difference above the noise floor but
+     below what a user would notice unprompted (a sub-pixel layout shift, a
+     shadow blur radius off by a fraction). A wrong token is never Minor,
+     regardless of how close it looks, see above.
    - **Polish:** cosmetic only.
 4. **Evidence required.** Every finding carries the diff image. A finding
    without an attached comparison image does not count, per the existing
@@ -58,6 +69,23 @@ The exact tolerance numbers, diff tooling, and per-region thresholds are
 left open here on purpose. Fix them from what the pilot's seeded deviations
 actually show, not from a guess made before anything has run against a real
 build.
+
+### Token correctness needs a structural check, not just a perceptual one
+
+A near-miss token (the case above) is the hardest input for a pure
+pixel/perceptual diff: loosen the tolerance enough to survive anti-aliasing
+and font rendering noise, and it also stops catching a color that is one
+palette step off. Tighten it enough to catch the near-miss, and it drowns in
+false positives from rendering noise alone. A perceptual diff cannot satisfy
+both at once.
+
+So token fidelity should be checked structurally, not inferred from pixels:
+compare the actual computed value the build used (the resolved CSS
+variable, the rendered color) against the exact value the design contract
+specifies for that token, an exact match or not, with no tolerance band.
+Reserve the perceptual, tolerance-based diff above for what does not reduce
+to a lookup, layout, spacing, composition, where "close enough" is a
+meaningful category and antialiasing noise has to be tolerated.
 
 ## Advisory internally, no external claim yet
 
