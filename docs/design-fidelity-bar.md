@@ -100,6 +100,32 @@ exact and needs no threshold at all, so the seeded-mismatch pilot's
 tolerance tuning (see below) only has to cover layout and spacing, not the
 near-miss token case, which was the least tunable input in the whole bar.
 
+### A gap between the two checks: color baked into an icon asset
+
+Some icons ship as an exported SVG with their color baked into the stroke
+or fill, not bound to a design-contract variable and not present in the
+computed-style manifest the structural check reads. Those icons are
+invisible to the structural check by construction. They are also, in
+practice, invisible to a whole-image perceptual diff: a small icon's pixel
+footprint is a tiny fraction of a full frame (well under 0.1% is typical),
+so even a completely wrong color there moves the frame's mean pixel
+difference by an amount indistinguishable from ordinary rendering noise.
+An icon colored wrong can sit in the gap between both checks: structurally
+unreachable and perceptually invisible.
+
+The fix is to run the perceptual diff **per region**, using the same named,
+boxed regions the node tree already provides (an icon's own bounding box,
+not the whole frame), rather than a single whole-image tolerance. A wrong
+color inside a small, tightly-cropped region is easy to catch; the same
+wrong color diluted across a full frame is not. This is a mechanical
+consequence of the severity rule already stated above, restated here so it
+is unambiguous and does not need re-deriving: **a wrong color is never
+Minor because it looks close, in a token, a baked-in asset, or anywhere
+else.** That means a region covering an icon needs a tight tolerance, tight
+enough to catch any wrong color in that region, exactly like the structural
+check's zero-tolerance band, just implemented perceptually because that
+region has no bindable variable to compare against.
+
 ## Advisory internally, no external claim yet
 
 - **Internally, every finding here is advisory:** severity-tagged, escalates
